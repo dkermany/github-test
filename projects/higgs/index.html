@@ -1,0 +1,144 @@
+<html>
+	<head>
+		<title>Higgs</title>
+		<style>
+			body { margin: 0; }
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<script>
+			var canvas;
+			var ctx;
+			var values;
+			var radius;
+			var frame;
+			var counter;
+			var r;
+			var g;
+			var b;
+
+			init();
+
+			function init() {
+				canvas = document.getElementById("canvas");
+				ctx = canvas.getContext("2d");
+				values = [];
+				radius = 7;
+				canvas.width = window.innerWidth;
+				canvas.height = window.innerHeight;
+				spawn();
+				r = 0;
+				g = 0;
+				b = 0;
+				frame = 0;
+				counter = 0;
+			}
+
+			function spawn() {
+				for(var i=0; i<300; i++) {
+				    values[i] = [];
+				    for(var j=0; j<4; j++) {
+				    	switch(j) {
+				    		case 0:
+				    			values[i][j] = Math.ceil(Math.random() * canvas.width);
+				    			break;
+				    		case 1:
+				    			values[i][j] = Math.ceil(Math.random() * canvas.height);
+				    			break;
+				    		case 2:
+				    		case 3:
+				    			values[i][j] = Math.ceil(Math.random()*5) * Math.pow(-1, Math.ceil(Math.random()*10));
+				    			break;
+				    	}
+				        
+				    }
+				}
+			}
+
+			// shim layer with setTimeout fallback
+			window.requestAnimFrame = (function() {
+				return  window.requestAnimationFrame       ||
+						window.webkitRequestAnimationFrame ||
+						window.mozRequestAnimationFrame    ||
+						function( callback ){
+							window.setTimeout(callback, 1000 / 60);
+						};
+			})();
+
+			// usage:
+			// instead of setInterval(render, 16) ....
+
+			(function animloop() {
+				requestAnimFrame(animloop);
+				render();
+			})();
+
+			// place the rAF *before* the render() to assure as close to
+			// 60fps with the setTimeout fallback.
+
+			function render() {
+				ctx.clearRect(0,0,canvas.width,canvas.height);
+				ctx.fillStyle = "#BF5700";
+
+				//longhorn
+				/*var a0x=0;
+				var a0y=0;
+				ctx.beginPath();
+				ctx.strokeStyle="#333333";
+				ctx.lineWidth=1; //center x == 462
+				ctx.moveTo(a0x+563,a0y+236);
+				ctx.quadraticCurveTo(a0x+496,a0y+221,a0x+428,a0y+234);
+				ctx.bezierCurveTo(a0x+341,a0y+301,a0x+272,a0y+132,a0x+96,a0y+143);
+				ctx.bezierCurveTo(a0x+57,a0y+149,a0x+64,a0y+155,a0x+99,a0y+157);
+				ctx.bezierCurveTo(a0x+264,a0y+179,a0x+286,a0y+264,a0x+368,a0y+289);
+				ctx.bezierCurveTo(a0x+343,a0y+295,a0x+324,a0y+300,a0x+305,a0y+318);
+				ctx.bezierCurveTo(a0x+347,a0y+339,a0x+373,a0y+341,a0x+408,a0y+333);
+				ctx.bezierCurveTo(a0x+407,a0y+412,a0x+456,a0y+409,a0x+435,a0y+481);
+				ctx.bezierCurveTo(a0x+420,a0y+535,a0x+429,a0y+546,a0x+463,a0y+559);
+				ctx.bezierCurveTo(a0x+488,a0y+559,a0x+507,a0y+558,a0x+526,a0y+560);
+				ctx.bezierCurveTo(a0x+545,a0y+558,a0x+574,a0y+545,a0x+558,a0y+483);
+				ctx.bezierCurveTo(a0x+539,a0y+410,a0x+584,a0y+410,a0x+583,a0y+333);
+				ctx.bezierCurveTo(a0x+617,a0y+344,a0x+649,a0y+341,a0x+677,a0y+318);
+				ctx.bezierCurveTo(a0x+663,a0y+305,a0x+645,a0y+299,a0x+605,a0y+285);
+				ctx.bezierCurveTo(a0x+716,a0y+276,a0x+761,a0y+175,a0x+915,a0y+173);
+				ctx.quadraticCurveTo(a0x+976,a0y+167,a0x+912,a0y+158);
+				ctx.bezierCurveTo(a0x+753,a0y+139,a0x+630,a0y+296,a0x+562,a0y+236);
+				ctx.closePath();
+				ctx.stroke();*/
+				var frequency = 0.1;
+				if(frame < 320 && counter % 10 == 0) {
+					r   = Math.ceil(Math.sin(frequency*frame + 0) * 127 + 128);
+					g = Math.ceil(Math.sin(frequency*frame + 2) * 127 + 128);
+					b  = Math.ceil(Math.sin(frequency*frame++ + 4) * 127 + 128);
+				}else if(frame >=320) {frame = 0;}
+
+				ctx.strokeStyle = "rgb("+r+", "+g+", "+b+")";
+				ctx.beginPath();
+
+				for(var row = 0; row < values.length; row++) {
+					var x = values[row][0];
+					var y = values[row][1];
+					var dx = values[row][2];
+					var dy = values[row][3];
+					ctx.arc(x, y, radius, 0, 2*Math.PI);
+					values[row][0] += dx;
+					values[row][1] += dy;
+
+					if((x + dx) > canvas.width - radius || x + dx < radius) {
+						values[row][2] = values[row][2] * -1;
+					}
+					if((y + dy) > canvas.height - radius || y + dy < radius) {
+						values[row][3] = values[row][3] * -1;
+					}
+					
+					ctx.closePath();
+				}
+
+				ctx.stroke();
+				counter++;
+			}
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,136 @@
+<html>
+  <head>
+    <title>Black Hole</title>
+    <style>
+      body { margin: 0; }
+      canvas { background: #1B0820;}
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script>
+      //Designed and Developed by Daniel S. Kermany
+      //December 25, 2015
+      //Inspired by YouTube Channel In a Nutshell - Kurzgesagt
+      var canvas;
+      var ctx;
+      var particles, particle;
+      var stars, star;
+      var blackhole;
+      var NUM_PARTICLES;
+      var NUM_STARS
+      var r, g, b;
+
+      init();
+
+      function init() {
+        canvas = document.getElementById("canvas");
+        ctx = canvas.getContext("2d");
+        particles = [];
+        stars = [];
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        blackhole = { centerX: canvas.width/2, centerY: canvas.height/2, radius: 250 };
+        NUM_PARTICLES = 2000;
+        NUM_STARS = 300;
+        r = 237;
+        g = 218;
+        b = 237;
+        initParticles();
+        initStars();
+      }
+
+      function initParticles() {
+        for(var i = 0; i < NUM_PARTICLES; i++) {
+          particles[i] = { 
+            x: 0, 
+            y: 0, 
+            radius: 1, 
+            speed: 0.002 + Math.random() * 0.0025,
+            angle: Math.random() * (2 * Math.PI),
+            orbit: blackhole.radius + Math.ceil(Math.random() * (5 * Math.round(i/150))),
+            color: "rgb("+(r+Math.round(Math.pow(i,0.65)))+", "+(g-Math.round(Math.pow(i,0.65)))+", "+(b-Math.round(Math.pow(i,0.65)))+")" 
+          }; 
+        }
+      }
+
+      function initStars() {
+        for(var i = 0; i < NUM_STARS; i++) {
+          stars[i] = { 
+            x: Math.ceil(Math.random() * canvas.width), 
+            y: Math.ceil(Math.random() * canvas.height), 
+            radius: 0, 
+            targetRadius: 0,
+            color: '#fff'
+          }; 
+        }
+      }
+
+      // shim layer with setTimeout fallback
+      window.requestAnimFrame = (function() {
+        return  window.requestAnimationFrame       ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame    ||
+            function( callback ){
+              window.setTimeout(callback, 1000 / 60);
+            };
+      })();
+
+      // usage:
+      // instead of setInterval(render, 16) ....
+
+      (function animloop() {
+        requestAnimFrame(animloop);
+        render();
+      })();
+
+      // place the rAF *before* the render() to assure as close to
+      // 60fps with the setTimeout fallback.
+
+      function render() {
+        //reset canvas
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+
+        //draw stars
+        for(var i = 0; i < stars.length; i++) {
+          ctx.beginPath();
+          star = stars[i];
+
+          //fluctuate size
+          star.radius += ( star.targetRadius - star.radius ) * 0.05;
+      
+          // If we're at the target size, set a new one. Think of it like a regular day at work.
+          if(Math.round(star.radius) == Math.round(star.targetRadius)) {
+            star.targetRadius = Math.random() * 2;
+          }
+
+          ctx.arc(star.x, star.y, star.radius, 0, Math.PI*2, true);
+          ctx.closePath();
+          ctx.fillStyle = star.color;
+          ctx.fill();
+        }
+
+        //draw blackhole
+        ctx.fillStyle = "rgb(0,0,0)";
+        ctx.beginPath();
+        ctx.arc(blackhole.centerX, blackhole.centerY, blackhole.radius, 0, Math.PI * 2, true);
+        ctx.closePath();
+        ctx.fill();
+
+        //draw particles
+        for(var i = 0; i < particles.length; i++) {
+          ctx.beginPath();
+          particle = particles[i];
+          particle.x = blackhole.centerX + Math.cos(particle.angle) * particle.orbit;
+          particle.y = blackhole.centerY + Math.sin(particle.angle) * particle.orbit;
+          ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI*2, true);
+          ctx.closePath();
+          ctx.fillStyle = particle.color;
+          ctx.fill();
+          particle.angle += particle.speed;
+        }
+      }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,636 @@
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: "museo-sans-rounded", sans-serif;
+  color: #58595b;
+  line-height: 50px;
+  background-color: #FAFAFA;
+}
+
+h1, h2 {
+  margin: 0;
+}
+
+.nav a:visited {
+  color: #fff;
+}
+
+.nav {
+  margin: 0px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #342e30;
+  z-index: 999;
+  opacity: 0.9;
+}
+
+.nav div{
+  display: inline;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.nav li {
+  display: inline;
+}
+
+#contact-img {
+  font-size: 1em;
+  width: 20px;
+}
+
+#name {
+  background: #3479a5;
+  padding: 17px 25px;
+}
+
+.pull-right {
+  float: right;
+  padding-right: 30px;
+}
+
+.pull-left {
+  height: 50px;
+}
+
+#icons {
+  margin: 0;
+  padding: 0;
+}
+
+#main-menu {
+  margin: 0px;
+}
+
+#main-menu li {
+  padding: 5px;
+  display: inline;
+}
+
+#main-menu li:nth-child(3) a {
+  color: #45ADF5;
+}
+
+.torso {
+  margin: 0;
+}
+
+.column {
+  margin-top: 70px;
+  margin-bottom: 50px;
+  margin-left: 82.5px;
+  margin-right: 82.5px;
+}
+
+.header {
+  font-weight: 100;
+}
+
+.header-caption {
+  font-weight: 100;
+}
+
+.project-item {
+  display: block;
+  height: 230px;
+  width: 100%;
+  margin-top: 50px;
+  border-radius: 40px;
+  background: rgba(233,233,233,0.3);
+  color: #58595b;
+  text-decoration: none;
+}
+
+.gamecalc-picture {
+  padding: 15px 15px 15px 15px;
+  background: url("../lib/images/gamecalc.png");
+  height: 200px;
+  width: 200px;
+  background-size: contain;
+  border-radius: 40px;
+}
+
+#gamecalc .logo {
+  width: 200px;
+  height: 200px;
+}
+
+.gamecalc-description {
+  padding-left: 15px;
+  padding-top: 10px;
+  width: 73%;
+  direction: ltr;
+}
+
+#watchpoint .logo {
+  width: 200px;
+  height: 220px;
+}
+
+.project-item div{
+  display: inline-block;
+  vertical-align: top;
+}
+
+.project-item img {
+  vertical-align: bottom; 
+}
+
+.project-item a:visited {
+  color: #58595b;
+}
+
+.caption {
+  font-size: 1em;
+  font-weight: 100;
+}
+
+.project-header {
+  font-size: 1.75em;
+  font-weight: 100;
+}
+
+#watchpoint {
+  float: right;
+  width: 100%;
+}
+
+#watchpoint div {
+  float: right;
+}
+
+.watchpoint-picture {
+  padding: 15px 15px 15px 15px;
+  height: 200px;
+  width: 200px;
+  background: url("../lib/images/watchpoint.png");
+  background-size: contain;
+  background-position: 20px;
+  border-radius: 40px;
+}
+
+.watchpoint-description {
+  padding-right: 15px;
+  padding-top: 10px;
+  width: 75%;
+  text-align: right;
+}
+
+.blackhole-picture {
+  padding: 15px 15px 15px 15px;
+  background: url("../lib/images/blackhole.png");
+  height: 200px;
+  width: 200px;
+  background-size: contain;
+  border-radius: 40px;
+}
+
+#blackhole .logo {
+  width: 200px;
+  height: 200px;
+}
+
+.blackhole-description {
+  padding-left: 15px;
+  padding-top: 10px;
+  width: 73%;
+  direction: ltr;
+}
+
+#amino {
+  width: 100%;
+}
+
+#amino div {
+  float: right;
+}
+
+.amino-picture {
+  padding: 15px 15px 15px 15px;
+  height: 200px;
+  width: 200px;
+  background: url("../lib/images/amino.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: -10px;
+  border-radius: 40px;
+}
+
+.amino-description {
+  padding-right: 15px;
+  padding-top: 10px;
+  width: 75%;
+  text-align: right;
+}
+
+.higgs-picture {
+  padding: 15px 15px 15px 15px;
+  background: url("../lib/images/higgs.png") no-repeat;
+  height: 200px;
+  width: 200px;
+  background-size: 100% 100%;
+  border-radius: 40px;
+}
+
+#higgs .logo {
+  width: 200px;
+  height: 200px;
+}
+
+.higgs-description {
+  padding-left: 15px;
+  padding-top: 10px;
+  width: 73%;
+  direction: ltr;
+}
+
+@media screen and (max-width: 1145px) {
+
+  .gamecalc-description {
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 73%;
+    direction: ltr;
+  }
+  .watchpoint-description {
+    padding-right: 15px;
+    padding-top: 10px;
+    width: 73%;
+    text-align: right;
+  }
+  .blackhole-description {
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 73%;
+    direction: ltr;
+  }
+  .amino-description {
+    padding-right: 15px;
+    padding-top: 10px;
+    width: 73%;
+    text-align: right;
+  }
+  .higgs-description {
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 73%;
+    direction: ltr;
+  }
+}
+
+@media screen and (max-width: 1095px) {
+
+  .gamecalc-description {
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 70%;
+    direction: ltr;
+  }
+  .watchpoint-description {
+    padding-right: 15px;
+    padding-top: 10px;
+    width: 70%;
+    text-align: right;
+  }
+  .blackhole-description {
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 70%;
+    direction: ltr;
+  }
+  .amino-description {
+    padding-right: 15px;
+    padding-top: 10px;
+    width: 70%;
+    text-align: right;
+  }
+  .higgs-description {
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 70%;
+    direction: ltr;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+
+  .gamecalc-description {
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 67%;
+    direction: ltr;
+    line-height: 40px;
+  }
+  .watchpoint-description {
+    padding-right: 15px;
+    padding-top: 10px;
+    width: 67%;
+    text-align: right;
+    line-height: 40px;
+  }
+  .blackhole-description {
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 67%;
+    direction: ltr;
+    line-height: 40px;
+  }
+  .amino-description {
+    padding-right: 15px;
+    padding-top: 10px;
+    width: 67%;
+    text-align: right;
+    line-height: 40px;
+  }
+  .higgs-description {
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 67%;
+    direction: ltr;
+    line-height: 40px;
+  }
+}
+
+@media screen and (max-width: 925px) {
+
+  .gamecalc-description {
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 64%;
+    direction: ltr;
+    line-height: 35px;
+  }
+  .watchpoint-description {
+    padding-right: 15px;
+    padding-top: 10px;
+    width: 64%;
+    text-align: right;
+    line-height: 35px;
+  }
+  .blackhole-description {
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 64%;
+    direction: ltr;
+    line-height: 35px;
+  }
+  .amino-description {
+    padding-right: 15px;
+    padding-top: 10px;
+    width: 64%;
+    text-align: right;
+    line-height: 35px;
+  }
+  .higgs-description {
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 64%;
+    direction: ltr;
+    line-height: 35px;
+  }
+}
+
+@media screen and (max-width: 860px) {
+
+  .gamecalc-description {
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 60%;
+    direction: ltr;
+    line-height: 35px;
+  }
+  .watchpoint-description {
+    padding-right: 15px;
+    padding-top: 10px;
+    width: 60%;
+    text-align: right;
+    line-height: 35px;
+  }
+  .blackhole-description {
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 60%;
+    direction: ltr;
+    line-height: 35px;
+  }
+  .amino-description {
+    padding-right: 15px;
+    padding-top: 10px;
+    width: 60%;
+    text-align: right;
+    line-height: 35px;
+  }
+  .higgs-description {
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 60%;
+    direction: ltr;
+    line-height: 35px;
+  }
+}
+
+@media screen and (max-width: 790px) {
+
+  .gamecalc-description {
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 56%;
+    direction: ltr;
+    line-height: 30px;
+  }
+  .watchpoint-description {
+    padding-right: 15px;
+    padding-top: 10px;
+    width: 56%;
+    text-align: right;
+    line-height: 30px;
+  }
+  .blackhole-description {
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 56%;
+    direction: ltr;
+    line-height: 30px;
+  }
+  .amino-description {
+    padding-right: 15px;
+    padding-top: 10px;
+    width: 56%;
+    text-align: right;
+    line-height: 30px;
+  }
+  .higgs-description {
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 56%;
+    direction: ltr;
+    line-height: 30px;
+  }
+}
+
+@media screen and (max-width: 735px) {
+
+  .gamecalc-description {
+    padding-left: 15px;
+    padding-top: 20px;
+    width: 50%;
+    direction: ltr;
+    line-height: 20px;
+  }
+  #gamecalc-caption{
+    padding-top: 10px;
+  }
+  .watchpoint-description {
+    padding-right: 15px;
+    padding-top: 20px;
+    width: 50%;
+    text-align: right;
+    line-height: 20px;
+  }
+  #watchpoint-caption{
+    padding-top: 10px;
+  }
+  .blackhole-description {
+    padding-left: 15px;
+    padding-top: 20px;
+    width: 50%;
+    direction: ltr;
+    line-height: 20px;
+  }
+  #blackhole-caption{
+    padding-top: 10px;
+  }
+  .amino-description {
+    padding-right: 15px;
+    padding-top: 20px;
+    width: 50%;
+    text-align: right;
+    line-height: 20px;
+  }
+  #amino-caption{
+    padding-top: 10px;
+  }
+  .higgs-description {
+    padding-left: 15px;
+    padding-top: 20px;
+    width: 50%;
+    direction: ltr;
+    line-height: 20px;
+  }
+  #higgs-caption{
+    padding-top: 10px;
+  }
+}
+
+@media screen and (max-width: 666px) {
+
+  .gamecalc-description {
+    padding-left: 15px;
+    padding-top: 20px;
+    width: 47%;
+    direction: ltr;
+    line-height: 20px;
+  }
+  #gamecalc-caption{
+    padding-top: 10px;
+  }
+  .watchpoint-description {
+    padding-right: 15px;
+    padding-top: 20px;
+    width: 47%;
+    text-align: right;
+    line-height: 20px;
+  }
+  #watchpoint-caption{
+    padding-top: 10px;
+  }
+  .blackhole-description {
+    padding-left: 15px;
+    padding-top: 20px;
+    width: 47%;
+    direction: ltr;
+    line-height: 20px;
+  }
+  #blackhole-caption{
+    padding-top: 10px;
+  }
+  .amino-description {
+    padding-right: 15px;
+    padding-top: 20px;
+    width: 47%;
+    text-align: right;
+    line-height: 20px;
+  }
+  #amino-caption{
+    padding-top: 10px;
+  }
+  .higgs-description {
+    padding-left: 15px;
+    padding-top: 20px;
+    width: 47%;
+    direction: ltr;
+    line-height: 20px;
+  }
+  #higgs-caption{
+    padding-top: 10px;
+  }
+}
+
+@media screen and (max-width: 636px) {
+
+  .gamecalc-description {
+    display: none !important;
+  }
+
+  .watchpoint-description {
+    display: none !important;
+  }
+
+  .blackhole-description {
+    display: none !important;
+  }
+
+  .amino-description {
+    display: none !important;
+  }
+
+  .higgs-description {
+    display: none !important;
+  }
+
+  .projects {
+    width: 230px;
+    margin: 0 auto;
+  }
+}
+
+.footer {
+  position: relative;
+  background-color: #342e30;
+  opacity: 0.9;
+  height: 100px;
+}
+
+.social-media {
+  position: relative;
+  top: 25px;
+  vertical-align: middle;
+  margin-left: auto;
+  margin-right: auto;
+  width: 140px;
+}
+
+.social-media a {
+  vertical-align: middle;
+  margin-right: 15px;
+  text-decoration: none;
+  color: #58595b;
+}
